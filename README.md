@@ -30,7 +30,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
     
      @Override
         public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
-            `_you will get update list with click value_ `
+            <!--you will get update list with click value-->
             this.keyValues = keyValueArrayList; 
         }
     }
