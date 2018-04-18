@@ -19,7 +19,5 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile project(path: ':mutliselect')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 }

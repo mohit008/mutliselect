@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MultiSelect.iml" filepath="$PROJECT_DIR$/MultiSelect.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mutliselect/mutliselect_search.iml" filepath="$PROJECT_DIR$/mutliselect/mutliselect_search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mutliselect/mutliselect.iml" filepath="$PROJECT_DIR$/mutliselect/mutliselect.iml" />
+      <module fileurl="file://D:\Mohit\workspace\3.0\MultiSelect\mutliselect\mutliselect_search.iml" filepath="D:\Mohit\workspace\3.0\MultiSelect\mutliselect\mutliselect_search.iml" />
     </modules>
   </component>
 </project>
