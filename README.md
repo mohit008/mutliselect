@@ -24,7 +24,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 
 
 #### How to use :
-1. <b>Implemant interface and its method
+1. <b>Implemant interface and its method</b>
 
        public class ListSuggest extends Activity implements SelectCheck {
         ArrayList<KeyValue> keyValues = new ArrayList<>();
@@ -36,7 +36,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
             this.keyValues = keyValueArrayList;                    //-- will get list with click value
         }
        }
-2. <b>Create object and initialise
+2. <b>Create object and initialise</b>
 
        MultiSelectSearchList lv;
        .....
@@ -47,7 +47,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
        lv.setItem(this, this, arrayList, this);                    //-- pass arraylist or string array here
     
     
-3. <b>Update list on edittext listener    
+3. <b>Update list on edittext listener</b>  
         
        et.addTextChangedListener(new TextWatcher() {
 
@@ -61,4 +61,4 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 
 
 #### Demo:
- ![demo_video](https://raw.githubusercontent.com/mohit008/mutliselect/master/app/src/main/res/raw/video_demo.mp4)
+ ![demo_video](https://raw.githubusercontent.com/mohit008/mutliselect/master/app/src/main/res/raw/video_demo.gif)
