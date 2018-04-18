@@ -1,97 +1,65 @@
-[![](https://jitpack.io/v/pratikbutani/MultiSelectSpinner.svg)](https://jitpack.io/#pratikbutani/MultiSelectSpinner)
+[![](https://jitpack.io/v/mohit008/mutliselect.svg)](https://jitpack.io/#mohit008/mutliselect)
 
-### How to import (Add dependency in build.gradle):
-
-    compile 'com.github.pratikbutani:MultiSelectSpinner:08d324c987'
-
-### Changes
-
-  * Made this an Android Studio project.
-  * Added Material library.
-  * Extracted the sample into a separate module.
-  * Code cleanup.
+## How to import (Add dependency in build.gradle):
 
 
-### MultiSelect Spinner with Search/Filter:
+Add it in your root <b>/build.gradle</b> at the end of repositories:
 
-![](https://lh5.googleusercontent.com/-MivlH0DxhMc/VZJ91Aa6qtI/AAAAAAAALdc/ZYfHBo_e9Vk/w325-h577-no/Screenshot_2015-06-30-16-03-59.png)
-
-![](https://lh5.googleusercontent.com/-Slk9xZZvOw8/VZJ91NEC9UI/AAAAAAAALdk/dg9k5e_8z8Y/w325-h577-no/Screenshot_2015-06-30-16-03-31.png)      ![](https://lh5.googleusercontent.com/-oLU8ZzsxXBk/VZJ91RZcGiI/AAAAAAAALdo/r4LgvaTB5p8/w325-h577-no/Screenshot_2015-06-30-16-03-51.png)
-
-### How to use (WITHOUT FILTER):
-
-	/*  
-	* Getting array of String to Bind in Spinner
-	*/
-	final List<String> list = Arrays.asList(getResources().getStringArray(R.array.sports_array));
-		
-	/**
-	* Simple MultiSelection Spinner (Without Search/Filter Functionlity)
-	* 
-	*  Using MultiSpinner class
-	*/	
-	MultiSpinner simpleSpinner = (MultiSpinner) findViewById(R.id.simpleMultiSpinner);
-	
-	simpleSpinner.setItems(list, "Multi Selection Without Filter", -1, new MultiSpinnerListener() {
-		
-	    @Override
-	public void onItemsSelected(boolean[] selected) {
-			
-			// your operation with code...
-			for(int i=0; i<selected.length; i++) {
-				if(selected[i]) {
-					Log.i("TAG", i + " : "+ list.get(i));
-				}
-			}
-		}
-	});
-
-### How to use (WITH FILTER):
-
-	/**
-	 * Search MultiSelection Spinner (With Search/Filter Functionality)
-	 * 
-	 *  Using MultiSpinnerSearch class
-	 */
-	MultiSpinnerSearch searchSpinner = (MultiSpinnerSearch) findViewById(R.id.searchMultiSpinner);
-	final List<KeyPairBoolData> listArray = new ArrayList<KeyPairBoolData>();
-
-	for(int i=0; i<list.size(); i++) {
-		KeyPairBoolData h = new KeyPairBoolData();
-		h.setId(i+1);
-		h.setName(list.get(i));
-		h.setSelected(false);
-		listArray.add(h);
+    allprojects {
+	   	repositories {
+		     	maven { url 'https://jitpack.io' }
+		   }
 	}
 
-	/***
-	 * -1 is no by default selection
-	 * 0 to length will select corresponding values 
-	 */
-	searchSpinner.setItems(listArray, "Multi Selection With Filter", -1, new MultiSpinnerSearchListener() {
-		@Override
-		public void onItemsSelected(List<KeyPairBoolData> items) {
+Step 2. Add the dependency to <b>app/build.gradle</b>
 
-			for(int i=0; i<items.size(); i++) {
-				if(items.get(i).isSelected()) {
-					Log.i("TAG", i + " : " + items.get(i).getName() + " : " + items.get(i).isSelected());
-				}
-			}
-		}
-	});
+	dependencies {
+	   compile 'com.github.mohit008:mutliselect:527d7c07d7'
+	}
 
 
-### (Optional) Limit setting 
+### List with multi-select and search option :
 
-	/**
-	 *  Using MultiSpinnerSearch object
-	 *  call setLimit method
-	 *  
-	 */
-	searchSpinner.setLimit(3, new MultiSpinnerSearch.LimitExceedListener() {
-            @Override
-            public void onLimitListener(KeyPairBoolData data) {
-                Toast.makeText(getApplicationContext(),
-                        "Limit exceed ", Toast.LENGTH_LONG).show();
-            }
-        });
+
+### How to use :
+#####1. implemant interface and its method
+    public class ListSuggest extends Activity implements SelectCheck {
+
+    ....
+    
+     @Override
+        public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
+            //you will get update list with click value 
+            this.keyValues = keyValueArrayList; 
+        }
+    }
+#####2. Create object and initialise
+
+
+    MultiSelectSearchList lv;
+    ArrayList<KeyValue> keyValues = new ArrayList<>();
+    .....
+    
+    lv = (MultiSelectSearchList) findViewById(R.id.lvDialog);
+    
+    // pass arraylist or string array here
+    lv.setItem(this, this, arrayList, this);
+    
+    
+#####3. Update list on edittext listener    
+        
+
+    etDialog.addTextChangedListener(new TextWatcher() {
+
+       @Override
+       public void afterTextChanged(Editable editable) {
+           String watcher = etDialog.getText().toString();
+           // update it..
+           lv.searchText(watcher.toLowerCase(), Generate.keyValues);
+       }
+    });
+  
+
+
+   
+}
