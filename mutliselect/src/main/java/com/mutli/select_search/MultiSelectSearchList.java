@@ -50,11 +50,8 @@ public class MultiSelectSearchList extends ListView {
      * @param selectCheck
      */
     public void setItem(Context context, Activity activity, Object object, SelectCheck selectCheck) {
-        try{
-            this.keyValueArrayList = new Generate().getKeyValue(object);
-        }catch (IncompatibleTypeError e){
-            e.getErr();
-        }
+        this.keyValueArrayList = (ArrayList<KeyValue>) object;
+        Gen.keyValues =  (ArrayList<KeyValue>) object;
         this.activity = activity;
         this.context = context;
         this.selectCheck = selectCheck;
@@ -71,6 +68,7 @@ public class MultiSelectSearchList extends ListView {
 
     /**
      * change watch text limit
+     *
      * @param limit
      */
     public void setWatchTextLimit(int limit) {
@@ -122,7 +120,7 @@ public class MultiSelectSearchList extends ListView {
             int size = 0;
             try {
                 size = keyValueArrayList.size();
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 e.printStackTrace();
             }
             return size;

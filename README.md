@@ -32,7 +32,6 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
     
         @Override
         public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
-        
             this.keyValues = keyValueArrayList;                    //-- will get list with click value
         }
        }
@@ -43,8 +42,19 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
        
        lv = (MultiSelectSearchList) findViewById(R.id.lvDialog);
        .....
+       
+       //add value to key value
+       ArrayList<KeyValue> keyValues = new ArrayList<>();
+       for (String s : arrayList) {
+               KeyValue keyValue = new KeyValue();
+               keyValue.setChecked(false);
+               keyValue.setId("");
+               keyValue.setName(s);
+               keyValue.setVisible(true);
+               keyValues.add(keyValue);
+       }
     
-       lv.setItem(this, this, arrayList, this);                    //-- pass arraylist or string array here
+       lv.setItem(this, this, keyValues, this);                    //-- pass arraylist or string array here
     
     
 3. <b>Update list on edittext listener</b>  
