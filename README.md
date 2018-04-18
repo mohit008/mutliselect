@@ -6,9 +6,9 @@
 Add it in your root <b>/build.gradle</b> at the end of repositories:
 
     allprojects {
-	repositories {
-	  	maven { url 'https://jitpack.io' }
-	}
+	  repositories {
+	  	  maven { url 'https://jitpack.io' }
+	  }
 	}
 
 Step 2. Add the dependency to <b>app/build.gradle</b>
@@ -30,7 +30,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
     
      @Override
         public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
-            //you will get update list with click value 
+            `_you will get update list with click value_ `
             this.keyValues = keyValueArrayList; 
         }
     }
@@ -56,8 +56,3 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
            lv.searchText(watcher.toLowerCase(), Generate.keyValues);
        }
     });
-  
-
-
-   
-}
