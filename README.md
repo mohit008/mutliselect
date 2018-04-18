@@ -6,9 +6,9 @@
 Add it in your root <b>/build.gradle</b> at the end of repositories:
 
     allprojects {
-	   	repositories {
-		     	maven { url 'https://jitpack.io' }
-		   }
+	repositories {
+	  	maven { url 'https://jitpack.io' }
+	}
 	}
 
 Step 2. Add the dependency to <b>app/build.gradle</b>
@@ -23,8 +23,9 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 
 ### How to use :
 #####1. implemant interface and its method
-    public class ListSuggest extends Activity implements SelectCheck {
 
+    public class ListSuggest extends Activity implements SelectCheck {
+    ArrayList<KeyValue> keyValues = new ArrayList<>();
     ....
     
      @Override
@@ -35,9 +36,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
     }
 #####2. Create object and initialise
 
-
     MultiSelectSearchList lv;
-    ArrayList<KeyValue> keyValues = new ArrayList<>();
     .....
     
     lv = (MultiSelectSearchList) findViewById(R.id.lvDialog);
@@ -48,8 +47,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
     
 #####3. Update list on edittext listener    
         
-
-    etDialog.addTextChangedListener(new TextWatcher() {
+    et.addTextChangedListener(new TextWatcher() {
 
        @Override
        public void afterTextChanged(Editable editable) {
