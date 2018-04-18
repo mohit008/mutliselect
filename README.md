@@ -7,7 +7,9 @@ Add it in your root <b>/build.gradle</b> at the end of repositories:
 
     allprojects {
 	  repositories {
-	  	  maven { url 'https://jitpack.io' }
+	  	  maven {
+	  	   url 'https://jitpack.io' 
+	  	  }
 	  }
 	}
 
@@ -22,37 +24,41 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 
 
 #### How to use :
-#####1. implemant interface and its method
+1. <b>Implemant interface and its method
 
-    public class ListSuggest extends Activity implements SelectCheck {
-    ArrayList<KeyValue> keyValues = new ArrayList<>();
-    ....
+       public class ListSuggest extends Activity implements SelectCheck {
+        ArrayList<KeyValue> keyValues = new ArrayList<>();
+        ....
     
-     @Override
+        @Override
         public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
         
-            this.keyValues = keyValueArrayList;                        //-- you will get update list with click value
+            this.keyValues = keyValueArrayList;                    //-- will get list with click value
         }
-    }
-#####2. Create object and initialise
+       }
+2. <b>Create object and initialise
 
-    MultiSelectSearchList lv;
-    .....
+       MultiSelectSearchList lv;
+       .....
+       
+       lv = (MultiSelectSearchList) findViewById(R.id.lvDialog);
+       .....
     
-    lv = (MultiSelectSearchList) findViewById(R.id.lvDialog);
-    .....
-    
-    lv.setItem(this, this, arrayList, this);                           //-- pass arraylist or string array here
+       lv.setItem(this, this, arrayList, this);                    //-- pass arraylist or string array here
     
     
-#####3. Update list on edittext listener    
+3. <b>Update list on edittext listener    
         
-    et.addTextChangedListener(new TextWatcher() {
+       et.addTextChangedListener(new TextWatcher() {
 
-       @Override
-       public void afterTextChanged(Editable editable) {
+         @Override
+         public void afterTextChanged(Editable editable) {
        
            // update it..
            lv.searchText(et.getText().toString().toLowerCase(), Generate.keyValues);
-       }
-    });
+         }
+       });
+
+
+#### Demo:
+ ![demo_video](https://raw.githubusercontent.com/mohit008/mutliselect/master/app/src/main/res/raw/video_demo.mp4)
