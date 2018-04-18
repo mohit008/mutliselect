@@ -1,15 +1,17 @@
 [![](https://jitpack.io/v/mohit008/mutliselect.svg)](https://jitpack.io/#mohit008/mutliselect)
 
-## How to import (Add dependency in build.gradle):
+#### How to import dependency (in build.gradle):
 
 
 Add it in your root <b>/build.gradle</b> at the end of repositories:
 
-    allprojects {
-	  repositories {
-	  	  maven { url 'https://jitpack.io' }
-	  }
-	}
+````
+allprojects {
+    repositories {
+      maven { url 'https://jitpack.io' } 
+    }
+}
+````
 
 Step 2. Add the dependency to <b>app/build.gradle</b>
 
@@ -21,26 +23,28 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 ### List with multi-select and search option :
 
 
-### How to use :
+#### How to use :
 #####1. implemant interface and its method
 
-    public class ListSuggest extends Activity implements SelectCheck {
-    ArrayList<KeyValue> keyValues = new ArrayList<>();
-    ....
+````
+public class ListSuggest extends Activity implements SelectCheck {
+ArrayList<KeyValue> keyValues = new ArrayList<>();
+....
     
-     @Override
-        public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
-            //-- you will get update list with click value
-            this.keyValues = keyValueArrayList; 
-        }
-    }
+ @Override
+ public void onItemCheck(ArrayList<KeyValue> keyValueArrayList) {
+       _you will get update list with click value_
+       this.keyValues = keyValueArrayList; 
+ }
+}
+````
 #####2. Create object and initialise
 
     MultiSelectSearchList lv;
     .....
     
     lv = (MultiSelectSearchList) findViewById(R.id.lvDialog);
-    
+    .....
     // pass arraylist or string array here
     lv.setItem(this, this, arrayList, this);
     
@@ -51,8 +55,8 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 
        @Override
        public void afterTextChanged(Editable editable) {
-           String watcher = etDialog.getText().toString();
+       
            // update it..
-           lv.searchText(watcher.toLowerCase(), Generate.keyValues);
+           lv.searchText(et.getText().toString().toLowerCase(), Generate.keyValues);
        }
     });
