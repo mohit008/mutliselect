@@ -71,4 +71,4 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 
 
 #### Demo:
- ![demo_video](https://raw.githubusercontent.com/mohit008/mutliselect/master/app/src/main/res/raw/video_demo.gif)
+ ![demo_video](https://raw.githubusercontent.com/mohit008/mutliselect/master/video_demo.gif)

@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 import com.multi.select.R;
 import com.mutli.select_search.Gen;
-import com.mutli.select_search.Generate;
 import com.mutli.select_search.KeyValue;
 import com.mutli.select_search.MultiSelectSearchList;
 import com.mutli.select_search.SelectCheck;

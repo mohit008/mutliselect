@@ -27,6 +27,8 @@ public class MultiSelectSearchList extends ListView {
     SelectCheck selectCheck;
     AdapterList adapterList;
 
+    Boolean singleCheck = false;
+
     int watchTextLimit = 2;
 
     public MultiSelectSearchList(Context context) {
@@ -96,10 +98,13 @@ public class MultiSelectSearchList extends ListView {
                 ll.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (keyValue.isChecked() == false) {
-                            keyValue.setChecked(true);
-                        } else {
-                            keyValue.setChecked(false);
+                        keyValue.setChecked(keyValue.isChecked() == false ? true : false);
+                        if(singleCheck){
+                            for(KeyValue keyValue1 : keyValueArrayList){
+                                if(!keyValue1.getName().equals(keyValue.getName())){
+                                    keyValue1.setChecked(false);
+                                }
+                            }
                         }
                         Log.i("Array", keyValue.toString());
                         notifyDataSetChanged();
@@ -132,7 +137,6 @@ public class MultiSelectSearchList extends ListView {
         }
     }
 
-
     /**
      * search list with keyword and update list
      *
@@ -153,5 +157,9 @@ public class MultiSelectSearchList extends ListView {
             this.keyValueArrayList = keyValues;
         }
         adapterList.notifyDataSetChanged();
+    }
+
+    public void setSingleCheck(boolean singleCheck){
+        this.singleCheck = singleCheck;
     }
 }
