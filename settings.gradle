@@ -1,1 +1,1 @@
-include ':app', ':mutliselect'
+include ':app'

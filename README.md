@@ -20,7 +20,7 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
 	}
 
 
-### List with multi-select and search option :
+### List with single, multi select and search option :
 
 
 #### How to use :
@@ -53,11 +53,17 @@ Step 2. Add the dependency to <b>app/build.gradle</b>
                keyValue.setVisible(true);
                keyValues.add(keyValue);
        }
+       
+3. <b>For single click feature (skip for multi click)
+
+       lvDialog.setSingleCheck(true);
     
+4. <b>Set Item to list:
+   
        lv.setItem(this, this, keyValues, this);                    //-- pass arraylist or string array here
     
     
-3. <b>Update list on edittext listener</b>  
+5. <b>Update list on edittext listener</b>  
         
        et.addTextChangedListener(new TextWatcher() {
 
